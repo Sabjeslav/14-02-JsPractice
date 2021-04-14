@@ -101,10 +101,16 @@ const testArray = [];
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-function randomFill(array, length, min, max) {
-  for (let i = 0; i < length; i++) {
-    array[i] = getRandomNumber(min, max);
-  }
+/**
+ * Random array fill
+ * @param {number[]} array - array to fill
+ * @param {number} min - minimal random range
+ * @param {number} max - maximum random range
+ */
+function randomFill(array, min, max) {
+  array.forEach((element) => {
+    element = getRandomNumber(min, max);
+  });
 }
 function getEvenIndexElems(array) {
   const res = [];
@@ -173,7 +179,7 @@ class Book {
 }
 
 class EBook extends Book {
-  constructor (author, name, productionYear, publisher, format, eNumber) {
+  constructor(author, name, productionYear, publisher, format, eNumber) {
     super(author, name, productionYear, publisher);
     this.format = format;
     this.eNumber = eNumber;
@@ -204,17 +210,17 @@ class EBook extends Book {
 вывод buzz вместо чисел, кратных 5; */
 
 function customOutput(n) {
-  for (let i = 1; i < n; i++){
+  for (let i = 1; i < n; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
-      console.log('fizzbuzz');
+      console.log("fizzbuzz");
       continue;
-    };
+    }
     if (i % 3 === 0) {
-      console.log('fizz');
+      console.log("fizz");
       continue;
-    };
+    }
     if (i % 5 === 0) {
-      console.log('buzz');
+      console.log("buzz");
       continue;
     }
     console.log(i);
